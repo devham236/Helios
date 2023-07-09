@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base {
+    body{
+        font-family: 'Roboto', sans-serif;
+        color: #fff; 
+    }
+
+    .gradient-bar{
+        @apply w-full h-2 rounded-lg bg-gradient-to-r from-blue-500 via-green-500 to-red-500;
+    }
+
+    .grid-div{
+        @apply bg-slate-800 rounded-lg p-3 sm:min-h-[200px] md:min-w-0
+    }
+
+    .info-div{
+        @apply flex items-center opacity-50 text-sm
+    }
+
+    .compass-sector{
+        @apply absolute flex items-center opacity-25
+    }
+
+    .auto-scroll{
+        @apply items-start overflow-y-auto h-screen scrollbar-none
+    }
+
+    .placeholder-div{
+        @apply border-2 rounded-lg border-slate-600 animate-pulse w-full p-2 mb-3
+    }
+}
