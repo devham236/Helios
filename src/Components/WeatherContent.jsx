@@ -17,11 +17,11 @@ import GridPlaceholder from './GridPlaceholder'
 const WeatherContent = ({activeCard}) => {
   const {opened, arrayEmpty} = useContext(Context)
 
-  const dailyElements = activeCard?.daily.map(item => (
+  const dailyElements = activeCard.daily.map(item => (
     <DailyForecast item={item} key={item.dt}/>
   ))
 
-  const hourlyElements = activeCard?.hourly.slice(0, 24).map(item => (
+  const hourlyElements = activeCard.hourly.slice(0, 24).map(item => (
     <HourlyForecast item={item} key={item.dt}/>
   ))
 
@@ -34,14 +34,14 @@ const WeatherContent = ({activeCard}) => {
         2xl:h-64 2xl:w-72`}
       >
         <div className="flex flex-col items-center">
-          <h1 className="text-4xl mb-2 ">{activeCard?.cityName}</h1>
+          <h1 className="text-4xl mb-2 ">{activeCard.cityName}</h1>
           <h1 className="text-6xl mb-2 font-extralight">
-            {activeCard?.current.temp.toFixed()}°C
+            {activeCard.current.temp.toFixed()}°C
           </h1>
         </div>
         <div className="flex flex-col items-center">
           <p className="mb-1 text-lg">
-            {activeCard?.current.weather[0].description}
+            {activeCard.current.weather[0].description}
           </p>
         </div>
       </div>
@@ -73,7 +73,7 @@ const WeatherContent = ({activeCard}) => {
             </div>
           </div>
           <div className="grid-div md:row-span-2 md:col-span-2 sm:row-span-2 sm:col-span-2">
-            <Map coord={{ lat: activeCard?.lat, lng: activeCard?.lon }} />
+            <Map coord={{ lat: activeCard.lat, lng: activeCard.lon }} />
           </div>
           <div className="grid-div md:row-span-3 md:col-span-2 sm:col-span-2 sm:row-span-3">
             <div className="DAILY-FORECAST w-full h-full max-h-full overflow-y-auto flex flex-col justify-between">
@@ -88,37 +88,37 @@ const WeatherContent = ({activeCard}) => {
             <AirQuality />
           </div>
           <div className="UV INDEX grid-div">
-            <UVindex index={activeCard?.current.uvi} />
+            <UVindex index={activeCard.current.uvi} />
           </div>
           <div className="SUNSET/SUNRISE grid-div">
             <SetRise
               times={{
-                sunrise: activeCard?.current.sunrise,
-                sunset: activeCard?.current.sunset,
-                offset: activeCard?.timezone_offset,
+                sunrise: activeCard.current.sunrise,
+                sunset: activeCard.current.sunset,
+                offset: activeCard.timezone_offset,
               }}
             />
           </div>
           <div className="grid-div flex flex-col items-center justify-between">
             <Compass
-              speed={activeCard?.current.wind_speed}
-              degrees={activeCard?.current.wind_deg}
+              speed={activeCard.current.wind_speed}
+              degrees={activeCard.current.wind_deg}
             />
           </div>
           <div className="grid-div">
-            <Rain rain={activeCard?.current.rain} />
+            <Rain rain={activeCard.current.rain} />
           </div>
           <div className="grid-div">
-            <FeelsLike fl_temp={activeCard?.current.feels_like} />
+            <FeelsLike fl_temp={activeCard.current.feels_like} />
           </div>
           <div className="grid-div">
-            <Humidity humidity={activeCard?.current.humidity} />
+            <Humidity humidity={activeCard.current.humidity} />
           </div>
           <div className="grid-div">
-            <Visibility visibility={activeCard?.current.visibility} />
+            <Visibility visibility={activeCard.current.visibility} />
           </div>
           <div className="grid-div">
-            <AirPressure pressure={activeCard?.current.pressure} />
+            <AirPressure pressure={activeCard.current.pressure} />
           </div>
         </div>
       </div>

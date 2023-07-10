@@ -15,7 +15,7 @@ const SetRise = ({times}) => {
           <i className="fa-solid fa-sun text-3xl mr-2"></i>
           <i className="fa-solid fa-arrow-up text-3xl"></i>
         </div>
-        <p className="text-2xl">{getTime(times?.sunrise, times?.offset)}</p>
+        <p className="text-2xl">{getTime(times.sunrise, times.offset)}</p>
       </div>
       <div className="w-full h-0.5 bg-white rounded-lg opacity-50"></div>
       <div className="w-full flex items-center justify-between">
@@ -23,7 +23,7 @@ const SetRise = ({times}) => {
           <i className="fa-solid fa-sun text-3xl mr-2"></i>
           <i className="fa-solid fa-arrow-down text-3xl"></i>
         </div>
-        <p className="text-2xl">{getTime(times?.sunset, times?.offset)}</p>
+        <p className="text-2xl">{getTime(times.sunset, times.offset)}</p>
       </div>
     </div>
   );
