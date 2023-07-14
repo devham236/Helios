@@ -31,7 +31,7 @@ const WeatherContent = ({activeCard}) => {
     >
       <div
         className={`top-part flex flex-col items-center justify-center py-5
-        2xl:h-64 2xl:w-72`}
+        2xl:h-64 2xl:w-full`}
       >
         <div className="flex flex-col items-center">
           <h1 className="text-4xl mb-2 ">{activeCard.cityName}</h1>
@@ -56,7 +56,7 @@ const WeatherContent = ({activeCard}) => {
       >
         <div
           className={`grid 
-              2xl:w-full 2xl:h-full gap-4 2xl:max-w-7xl 2xl:max-h-[805px] 2xl:grid-rows-4 2xl:grid-cols-6 
+              2xl:w-full 2xl:h-full gap-2 2xl:max-w-7xl 2xl:max-h-[805px] 2xl:grid-rows-4 2xl:grid-cols-6 
               xl:grid-rows-6 xl:grid-cols-4 xl:max-w-4xl
               lg:grid-rows-6 lg:grid-cols-4 lg:max-w-3xl
               md:grid-rows-6 md:grid-cols-4 md:max-w-3xl
@@ -84,7 +84,7 @@ const WeatherContent = ({activeCard}) => {
               {dailyElements} 
             </div>
           </div>
-          <div className="AIR QUALITY grid-div sm:col-span-2 sm:row-span-1 sm:min-h-[189px]">
+          <div className="AIR QUALITY grid-div sm:col-span-2 sm:row-span-1 sm:min-h-[189px] lg:min-h-0">
             <AirQuality />
           </div>
           <div className="UV INDEX grid-div">

@@ -16,7 +16,7 @@
     }
 
     .grid-div{
-        @apply bg-slate-800 rounded-lg p-3 sm:min-h-[200px] md:min-w-0
+        @apply bg-slate-800 rounded-lg p-3 sm:min-h-[200px] md:min-w-0 lg:min-h-0
     }
 
     .info-div{
