@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from "react"
-import {API_KEY, MAP_API_KEY} from "./Utils/api_key"
+import {API_KEY} from "./Utils/api_key"
 
 const Context = createContext()
 
