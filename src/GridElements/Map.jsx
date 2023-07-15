@@ -1,13 +1,12 @@
 import React, {useContext} from 'react'
 import { useJsApiLoader, GoogleMap } from '@react-google-maps/api';
-import { MAP_API_KEY } from '../Utils/api_key';
 import { Context } from '../Context';
 
 const Map = ({coord}) => {
   const {activeCard} = useContext(Context)
 
   const {isLoaded} = (useJsApiLoader({
-    googleMapsApiKey: MAP_API_KEY
+    googleMapsApiKey: import.meta.env.VITE_MAP_API_KEY
   }))   
 
   return (

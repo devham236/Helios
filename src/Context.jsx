@@ -1,5 +1,4 @@
 import React, { createContext, useEffect, useState } from "react"
-import {API_KEY} from "./Utils/api_key"
 
 const Context = createContext()
 
@@ -68,7 +67,7 @@ function ContextProvider(props) {
   async function getWeatherData() {
     if (input !== "") {
       try {
-        const url = `https://api.openweathermap.org/data/2.5/weather?q=${input}&units=metric&appid=${API_KEY}`
+        const url = `https://api.openweathermap.org/data/2.5/weather?q=${input}&units=metric&appid=${import.meta.env.VITE_API_KEY}`
         const res = await fetch(url)
         const data = await res.json()
 
@@ -84,7 +83,7 @@ function ContextProvider(props) {
 
   async function getOneCallData(lat, lon, cityName) {
     try {
-      const url = `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&exclude=minutely&units=metric&appid=${API_KEY}`
+      const url = `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&exclude=minutely&units=metric&appid=${import.meta.env.VITE_API_KEY}`
       const response = await fetch(url)
       const data = await response.json()
 

@@ -22,4 +22,4 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-*api_key.js
+.env
