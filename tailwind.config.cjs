@@ -4,15 +4,12 @@ module.exports = {
   theme: {
     extend: {
       spacing: {
-        '96': '805px',
+        96: "805px",
       },
       screens: {
-        'sm': '100px'
-      }
+        sm: "100px",
+      },
     },
   },
-  plugins: [
-    require('tailwind-scrollbar'),
-    require('tailwind-scrollbar-hide'),
-  ],
+  plugins: [require("tailwind-scrollbar"), require("tailwind-scrollbar-hide")],
 }

@@ -1,6 +1,6 @@
-import React from 'react'
+import React from "react"
 
-const AirPressure = ({pressure}) => {
+const AirPressure = ({ pressure }) => {
   return (
     <div className="w-full h-full flex flex-col items-center justify-between">
       <div className="info-div w-full">
@@ -15,7 +15,7 @@ const AirPressure = ({pressure}) => {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
 export default AirPressure

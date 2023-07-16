@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react"
 
 const CardPlaceholder = () => {
   const arr = [1, 2, 3]
@@ -25,7 +25,7 @@ const CardPlaceholder = () => {
         </div>
       ))}
     </div>
-  );
+  )
 }
 
 export default CardPlaceholder

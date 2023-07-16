@@ -1,9 +1,8 @@
-import React from 'react'
-import moment from 'moment'
-import getTime from '../Utils/getTime'
+import React from "react"
+import moment from "moment"
+import getTime from "../Utils/getTime"
 
-const SetRise = ({times}) => {
-  
+const SetRise = ({ times }) => {
   return (
     <div className="w-full h-full flex flex-col items-start justify-between">
       <div className="info-div">
@@ -26,7 +25,7 @@ const SetRise = ({times}) => {
         <p className="text-2xl">{getTime(times.sunset, times.offset)}</p>
       </div>
     </div>
-  );
+  )
 }
 
 export default SetRise

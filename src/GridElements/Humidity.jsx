@@ -1,6 +1,6 @@
-import React from 'react'
+import React from "react"
 
-const Humidity = ({humidity}) => {
+const Humidity = ({ humidity }) => {
   return (
     <div className="w-full h-full flex flex-col justify-between">
       <div className="info-div">

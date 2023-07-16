@@ -24,14 +24,12 @@ function ContextProvider(props) {
   }, [opened, weatherArray, activeCard])
 
   useEffect(() => {
-    if(weatherArray.length === 0) {
+    if (weatherArray.length === 0) {
       showPlaceHolders()
-    }
-    else{
+    } else {
       setArrayEmpty(false)
     }
   }, [weatherArray])
-
 
   function showPlaceHolders() {
     setArrayEmpty(true)
@@ -48,31 +46,34 @@ function ContextProvider(props) {
   }
 
   function removeItem(item) {
-    if(activeCard === item) {
-      setWeatherArray(prevArray => prevArray.filter(card => card.current.dt !== item.current.dt))
+    if (activeCard === item) {
+      setWeatherArray((prevArray) =>
+        prevArray.filter((card) => card.current.dt !== item.current.dt)
+      )
       setActiveCard(weatherArray.length === 0 ? null : weatherArray[0])
-
-    }
-    else {
-      setWeatherArray(prevArray => prevArray.filter(card => card.current.dt !== item.current.dt))
+    } else {
+      setWeatherArray((prevArray) =>
+        prevArray.filter((card) => card.current.dt !== item.current.dt)
+      )
     }
   }
 
   function addItem(newItem) {
-    setWeatherArray(prevItem => [...prevItem, newItem])
+    setWeatherArray((prevItem) => [...prevItem, newItem])
     setModalOpened(false)
     setActiveCard(newItem)
-  } 
+  }
 
   async function getWeatherData() {
     if (input !== "") {
       try {
-        const url = `https://api.openweathermap.org/data/2.5/weather?q=${input}&units=metric&appid=${import.meta.env.VITE_API_KEY}`
+        const url = `https://api.openweathermap.org/data/2.5/weather?q=${input}&units=metric&appid=${
+          import.meta.env.VITE_API_KEY
+        }`
         const res = await fetch(url)
         const data = await res.json()
 
         getOneCallData(data.coord.lat, data.coord.lon, data.name)
-
       } catch (error) {
         console.log(error)
       }
@@ -83,13 +84,14 @@ function ContextProvider(props) {
 
   async function getOneCallData(lat, lon, cityName) {
     try {
-      const url = `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&exclude=minutely&units=metric&appid=${import.meta.env.VITE_API_KEY}`
+      const url = `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&exclude=minutely&units=metric&appid=${
+        import.meta.env.VITE_API_KEY
+      }`
       const response = await fetch(url)
       const data = await response.json()
 
       setModalOpened(true)
-      setModal({...data, cityName})
-
+      setModal({ ...data, cityName })
     } catch (error) {
       console.log(error)
     }

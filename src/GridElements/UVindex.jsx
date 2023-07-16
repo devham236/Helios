@@ -1,6 +1,6 @@
-import React from 'react'
+import React from "react"
 
-const UVindex = ({index}) => {
+const UVindex = ({ index }) => {
   return (
     <div className="w-full h-full flex flex-col justify-between text-left">
       <div className="info-div">
@@ -12,7 +12,7 @@ const UVindex = ({index}) => {
         <p className="text-lg font-medium">Low</p>
       </div>
       <div className="gradient-bar"></div>
-      <p className='text-sm'>Lorem, ipsum dolor.</p>
+      <p className="text-sm">Lorem, ipsum dolor.</p>
     </div>
   )
 }

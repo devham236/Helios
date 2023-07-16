@@ -1,12 +1,13 @@
-import React, {useContext} from 'react'
-import WeatherContent from './WeatherContent'
-import Sidebar from './Sidebar'
-import Modal from './Modal'
-import GridPlaceholder from './GridPlaceholder'
-import { Context } from '../Context'
+import React, { useContext } from "react"
+import WeatherContent from "./WeatherContent"
+import Sidebar from "./Sidebar"
+import Modal from "./Modal"
+import GridPlaceholder from "./GridPlaceholder"
+import { Context } from "../Context"
 
 const MainContent = () => {
-  const {activeCard, modalOpened, modal, opened, setOpened, weatherArray} = useContext(Context)
+  const { activeCard, modalOpened, modal, opened, setOpened, weatherArray } =
+    useContext(Context)
 
   return (
     <div className="w-screen h-screen bg-gradient-to-b from-slate-500 to-slate-700 flex relative duration-300">
@@ -24,8 +25,7 @@ const MainContent = () => {
         onClick={() => setOpened(!opened)}
       ></i>
     </div>
-  );
+  )
 }
 
 export default MainContent
-

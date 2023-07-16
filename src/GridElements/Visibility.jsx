@@ -1,6 +1,6 @@
-import React from 'react'
+import React from "react"
 
-const Visibility = ({visibility}) => {
+const Visibility = ({ visibility }) => {
   return (
     <div className="w-full h-full flex flex-col justify-between">
       <div className="info-div">

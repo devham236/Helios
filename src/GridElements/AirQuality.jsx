@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react"
 
 const AirQuality = () => {
   return (
@@ -13,9 +13,7 @@ const AirQuality = () => {
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio!
         </p>
       </div>
-      <div className="gradient-bar">
-        {/*gradient bar*/}
-      </div>
+      <div className="gradient-bar">{/*gradient bar*/}</div>
     </div>
   )
 }

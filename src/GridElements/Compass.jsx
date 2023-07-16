@@ -1,7 +1,7 @@
-import React from 'react'
-import getSectors from '../Utils/getSectors';
+import React from "react"
+import getSectors from "../Utils/getSectors"
 
-const Compass = ({speed, degrees}) => {
+const Compass = ({ speed, degrees }) => {
   const sectors = getSectors(degrees)
 
   return (
@@ -17,28 +17,44 @@ const Compass = ({speed, degrees}) => {
           <p className="text-xs font-light">{sectors}</p>
         </div>
 
-        <div className={`compass-sector -top-2 flex-col justify-center text-xs ${sectors.includes("N") ? "opacity-100" : ""}`}>
+        <div
+          className={`compass-sector -top-2 flex-col justify-center text-xs ${
+            sectors.includes("N") ? "opacity-100" : ""
+          }`}
+        >
           <i className="fa-solid fa-caret-up"></i>
           <p>N</p>
         </div>
 
-        <div className={`compass-sector -right-1 text-xs ${sectors.includes("E") ? "opacity-100" : ""}`}>
+        <div
+          className={`compass-sector -right-1 text-xs ${
+            sectors.includes("E") ? "opacity-100" : ""
+          }`}
+        >
           <p className="mr-2">E</p>
           <i className="fa-solid fa-caret-right"></i>
         </div>
 
-        <div className={`compass-sector -bottom-2 text-xs flex-col justify-center ${sectors.includes("S") ? "opacity-100" : ""}`}>
+        <div
+          className={`compass-sector -bottom-2 text-xs flex-col justify-center ${
+            sectors.includes("S") ? "opacity-100" : ""
+          }`}
+        >
           <p className="">S</p>
           <i className="fa-solid fa-caret-down"></i>
         </div>
 
-        <div className={`compass-sector -left-1 text-xs justify-center ${sectors.includes("W") ? "opacity-100" : ""}`}>
+        <div
+          className={`compass-sector -left-1 text-xs justify-center ${
+            sectors.includes("W") ? "opacity-100" : ""
+          }`}
+        >
           <i className="fa-solid fa-caret-left"></i>
           <p className="ml-1">W</p>
         </div>
       </div>
     </>
-  );
+  )
 }
 
 export default Compass

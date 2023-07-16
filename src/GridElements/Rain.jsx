@@ -1,6 +1,6 @@
-import React from 'react'
+import React from "react"
 
-const Rain = ({rain}) => {
+const Rain = ({ rain }) => {
   return (
     <div className="w-full h-full flex flex-col justify-between">
       <div className="info-div">
@@ -14,7 +14,7 @@ const Rain = ({rain}) => {
       </div>
       <p className="text-sm">Lorem ipsum dolor sit amet.</p>
     </div>
-  );
+  )
 }
 
 export default Rain

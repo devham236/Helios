@@ -1,33 +1,35 @@
-import React, {useContext} from 'react'
-import { Context } from '../Context'
-import HourlyForecast from '../GridElements/HourlyForecast'
-import DailyForecast from '../GridElements/DailyForecast'
-import AirQuality from '../GridElements/AirQuality'
-import UVindex from '../GridElements/UVindex'
-import SetRise from '../GridElements/SetRise'
-import FeelsLike from '../GridElements/FeelsLike'
-import Humidity from '../GridElements/Humidity'
-import Visibility from '../GridElements/Visibility'
-import Rain from '../GridElements/Rain'
-import Compass from '../GridElements/Compass'
-import AirPressure from '../GridElements/AirPressure'
-import Map from '../GridElements/Map'
-import GridPlaceholder from './GridPlaceholder'
+import React, { useContext } from "react"
+import { Context } from "../Context"
+import HourlyForecast from "../GridElements/HourlyForecast"
+import DailyForecast from "../GridElements/DailyForecast"
+import AirQuality from "../GridElements/AirQuality"
+import UVindex from "../GridElements/UVindex"
+import SetRise from "../GridElements/SetRise"
+import FeelsLike from "../GridElements/FeelsLike"
+import Humidity from "../GridElements/Humidity"
+import Visibility from "../GridElements/Visibility"
+import Rain from "../GridElements/Rain"
+import Compass from "../GridElements/Compass"
+import AirPressure from "../GridElements/AirPressure"
+import Map from "../GridElements/Map"
+import GridPlaceholder from "./GridPlaceholder"
 
-const WeatherContent = ({activeCard}) => {
-  const {opened, arrayEmpty} = useContext(Context)
+const WeatherContent = ({ activeCard }) => {
+  const { opened, arrayEmpty } = useContext(Context)
 
-  const dailyElements = activeCard.daily.map(item => (
-    <DailyForecast item={item} key={item.dt}/>
+  const dailyElements = activeCard.daily.map((item) => (
+    <DailyForecast item={item} key={item.dt} />
   ))
 
-  const hourlyElements = activeCard.hourly.slice(0, 24).map(item => (
-    <HourlyForecast item={item} key={item.dt}/>
-  ))
+  const hourlyElements = activeCard.hourly
+    .slice(0, 24)
+    .map((item) => <HourlyForecast item={item} key={item.dt} />)
 
   return (
     <div
-      className={`${opened ? "md:w-[calc(100%-20rem)] md:block sm:hidden" : "w-screen"} h-screen flex flex-col items-center duration-300 z-10`}
+      className={`${
+        opened ? "md:w-[calc(100%-20rem)] md:block sm:hidden" : "w-screen"
+      } h-screen flex flex-col items-center duration-300 z-10`}
     >
       <div
         className={`top-part flex flex-col items-center justify-center py-5
@@ -81,7 +83,7 @@ const WeatherContent = ({activeCard}) => {
                 <i className="fa-solid fa-calendar-days mr-1"></i>
                 <p className="text-left ml-1">10-Day-Forecast</p>
               </div>
-              {dailyElements} 
+              {dailyElements}
             </div>
           </div>
           <div className="AIR QUALITY grid-div sm:col-span-2 sm:row-span-1 sm:min-h-[189px] lg:min-h-0">
@@ -123,17 +125,7 @@ const WeatherContent = ({activeCard}) => {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
 export default WeatherContent
-
-// sm	640px	@media (min-width: 640px) { ... }
-// md	768px	@media (min-width: 768px) { ... }
-// lg	1024px	@media (min-width: 1024px) { ... }
-// xl	1280px	@media (min-width: 1280px) { ... }
-// 2xl 1536px	@media (min-width: 1536px) { ... }
-
-/**
- 
- */

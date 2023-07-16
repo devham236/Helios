@@ -1,6 +1,6 @@
-import React from 'react'
+import React from "react"
 
-const FeelsLike = ({fl_temp}) => {
+const FeelsLike = ({ fl_temp }) => {
   return (
     <div className="w-full h-full flex flex-col justify-between">
       <div className="info-div">
@@ -12,7 +12,7 @@ const FeelsLike = ({fl_temp}) => {
         Lorem ipsum dolor sit amet, consectetur adipisicing.
       </p>
     </div>
-  );
+  )
 }
 
 export default FeelsLike

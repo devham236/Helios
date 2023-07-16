@@ -1,13 +1,13 @@
-import React, {useContext} from 'react'
-import { useJsApiLoader, GoogleMap } from '@react-google-maps/api';
-import { Context } from '../Context';
+import React, { useContext } from "react"
+import { useJsApiLoader, GoogleMap } from "@react-google-maps/api"
+import { Context } from "../Context"
 
-const Map = ({coord}) => {
-  const {activeCard} = useContext(Context)
+const Map = ({ coord }) => {
+  const { activeCard } = useContext(Context)
 
-  const {isLoaded} = (useJsApiLoader({
-    googleMapsApiKey: import.meta.env.VITE_MAP_API_KEY
-  }))   
+  const { isLoaded } = useJsApiLoader({
+    googleMapsApiKey: import.meta.env.VITE_MAP_API_KEY,
+  })
 
   return (
     <div className="w-full h-full flex flex-col justify-between">
@@ -31,7 +31,7 @@ const Map = ({coord}) => {
         )}
       </div>
     </div>
-  );
+  )
 }
 
 export default Map
