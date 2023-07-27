@@ -12,10 +12,9 @@ import Rain from "../GridElements/Rain"
 import Compass from "../GridElements/Compass"
 import AirPressure from "../GridElements/AirPressure"
 import Map from "../GridElements/Map"
-import GridPlaceholder from "./GridPlaceholder"
 
 const WeatherContent = ({ activeCard }) => {
-  const { opened, arrayEmpty } = useContext(Context)
+  const { opened } = useContext(Context)
 
   const dailyElements = activeCard.daily.map((item) => (
     <DailyForecast item={item} key={item.dt} />
