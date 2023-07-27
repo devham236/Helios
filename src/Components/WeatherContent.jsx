@@ -29,7 +29,7 @@ const WeatherContent = ({ activeCard }) => {
     <div
       className={`${
         opened ? "md:w-[calc(100%-20rem)] md:block sm:hidden" : "w-screen"
-      } h-screen flex flex-col items-center duration-300 z-10`}
+      }  h-screen flex flex-col items-center duration-300 z-10`}
     >
       <div
         className={`top-part flex flex-col items-center justify-center py-5
@@ -50,7 +50,7 @@ const WeatherContent = ({ activeCard }) => {
 
       <div
         className={`bottom-part w-full flex justify-center p-5 
-        2xl:h-[calc(100%-16rem)] 2xl:items-start 
+        2xl:h-[calc(100%-16rem)] max-h-[calc(100%-13rem)]  2xl:items-start 
         xl:auto-scroll
         lg:auto-scroll
         md:auto-scroll
