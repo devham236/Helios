@@ -2,7 +2,7 @@ import React, { createContext, useEffect, useState } from "react"
 
 const Context = createContext()
 
-function ContextProvider(props) {
+function ContextProvider({ children }) {
   const [input, setInput] = useState("")
   const [modalOpened, setModalOpened] = useState(false)
   const [modal, setModal] = useState(null)
@@ -117,7 +117,7 @@ function ContextProvider(props) {
         handleKeyDown,
       }}
     >
-      {props.children}
+      {children}
     </Context.Provider>
   )
 }
