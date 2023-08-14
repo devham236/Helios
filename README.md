@@ -1,7 +1,7 @@
 # weather-app
 Weather app with basic search functionality. Most of the logic is inside the Context file, the following notes explain how the web app works and what function in what file is being used.
 
-1. Search for a City
+# Search for a City
 
 (Instructions)    
 Click on the menu icon on the top left side, type in the name of the city inside the input and hit enter or click the search icon. A modal should now pop up, with some information about the searched city with a close button and a add button
