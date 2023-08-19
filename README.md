@@ -1,4 +1,4 @@
-# Weather Forecast App
+# Weather Forecast App ☀️☔️☁️
 
 Welcome to my Weather Forecast App! This application brings you real-time weather updates from around the globe, delivering accurate and up-to-date information using the OpenWeatherMap API. The app is crafted with a strong emphasis on design, taking inspiration from the sleek and intuitive layout of the iPhone/iPad Weather app. It's built using React.js with Vite as the build tool and styled with the finesse of Tailwind CSS for a visually appealing and fully responsive experience.
 
@@ -57,4 +57,4 @@ yarn dev
 Should there be some bugs you encounter, please feel free to submit an issue using the issues tab above. If you have ideas for new features, improvements, or any idea of modifying the project, i would encourage you to clone and rename this project to use for your own purposes. Your input is valuable and deeply appreciated.
 
 
-Happy Coding
+**Happy Coding** 🚀
