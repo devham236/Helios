@@ -1,14 +1,27 @@
 import React, { useContext } from "react"
 import { Context } from "../Context"
 import getTime from "../Utils/getTime"
+import { motion } from "framer-motion"
+
+const card = {
+  initial: {
+    opacity: 0,
+    y: 10,
+  },
+  animate: {
+    opacity: 1,
+    y: 0,
+  },
+}
 
 const WeatherCard = ({ item }) => {
   const { setActiveCard, removeItem, activeCard } = useContext(Context)
 
-  const match = item?.current?.dt === activeCard?.current?.dt
+  const match = item?.cityName === activeCard?.cityName
 
   return (
-    <div
+    <motion.div
+      variants={card}
       className={`weather-card bg-slate-600 rounded-lg p-2 mb-4 cursor-pointer opacity-50 duration-300 ${
         match && "opacity-[95]"
       }`}
@@ -50,7 +63,7 @@ const WeatherCard = ({ item }) => {
           </p>
         </div>
       </div>
-    </div>
+    </motion.div>
   )
 }
 

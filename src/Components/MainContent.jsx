@@ -4,6 +4,7 @@ import Sidebar from "./Sidebar"
 import Modal from "./Modal"
 import GridPlaceholder from "./GridPlaceholder"
 import { Context } from "../Context"
+import { AnimatePresence } from "framer-motion"
 
 const MainContent = () => {
   const { activeCard, modalOpened, modal, opened, setOpened, weatherArray } =
@@ -17,7 +18,9 @@ const MainContent = () => {
       ) : (
         <GridPlaceholder />
       )}
-      {modalOpened && <Modal modal={modal} />}
+      <AnimatePresence>
+        {modalOpened && <Modal modal={modal} />}
+      </AnimatePresence>
       <i
         className={`fa-solid fa-${
           opened ? "xmark md:left-[330px] sm:right-2" : "bars left-3"

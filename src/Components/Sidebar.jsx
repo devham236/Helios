@@ -2,6 +2,20 @@ import React, { useContext } from "react"
 import { Context } from "../Context"
 import WeatherCard from "./WeatherCard"
 import CardPlaceholder from "./CardPlaceholder"
+import { motion, AnimatePresence } from "framer-motion"
+
+const container = {
+  initial: {
+    opacity: 0,
+  },
+  animate: {
+    opacity: 1,
+    transition: { duration: 1, delayChildren: 0.3, staggerChildren: 0.2 },
+  },
+  exit: {
+    opacity: 0,
+  },
+}
 
 const Sidebar = () => {
   const {
@@ -40,9 +54,21 @@ const Sidebar = () => {
             <i className="fa-solid fa-magnifying-glass"></i>
           </div>
         </div>
-        <div className="mt-5 flex flex-col">
-          {arrayEmpty ? <CardPlaceholder /> : weatherCards}
-        </div>
+        {arrayEmpty ? (
+          <CardPlaceholder />
+        ) : (
+          <AnimatePresence>
+            <motion.div
+              variants={container}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              className="mt-5 flex flex-col"
+            >
+              {weatherCards}
+            </motion.div>
+          </AnimatePresence>
+        )}
       </div>
     </div>
   )
