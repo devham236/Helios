@@ -1,17 +1,19 @@
 import React, { useContext } from "react"
 import { Context } from "../Context"
-import HourlyForecast from "../GridElements/HourlyForecast"
-import DailyForecast from "../GridElements/DailyForecast"
-import AirQuality from "../GridElements/AirQuality"
-import UVindex from "../GridElements/UVindex"
-import SetRise from "../GridElements/SetRise"
-import FeelsLike from "../GridElements/FeelsLike"
-import Humidity from "../GridElements/Humidity"
-import Visibility from "../GridElements/Visibility"
-import Rain from "../GridElements/Rain"
-import Compass from "../GridElements/Compass"
-import AirPressure from "../GridElements/AirPressure"
-import Map from "../GridElements/Map"
+import {
+  HourlyForecast,
+  DailyForecast,
+  AirQuality,
+  UVindex,
+  SetRise,
+  FeelsLike,
+  Humidity,
+  Visibility,
+  Rain,
+  Compass,
+  AirPressure,
+  Map,
+} from "../GridElements/index"
 import { AnimatePresence, motion } from "framer-motion"
 
 const container = {
