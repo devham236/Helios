@@ -51,7 +51,7 @@ const Sidebar = () => {
             className="bg-slate-600 p-2 rounded-md cursor-pointer opacity-50 hover:opacity-100 duration-300 flex items-center justify-center"
             onClick={getWeatherData}
           >
-            <i className="fa-solid fa-magnifying-glass"></i>
+            <i data-testid="icon" className="fa-solid fa-magnifying-glass"></i>
           </div>
         </div>
         {arrayEmpty ? (
