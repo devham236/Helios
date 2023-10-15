@@ -1,39 +1,10 @@
-import React, { useContext } from "react"
-import { Context } from "../Context"
+import React from "react"
 import { motion } from "framer-motion"
-
-const container = {
-  initial: {
-    opacity: 1,
-    scale: 0,
-  },
-  animate: {
-    opacity: 1,
-    scale: 1,
-    transition: {
-      delayChildren: 0.2,
-      staggerChildren: 0.1,
-    },
-  },
-  exit: {
-    scale: 0,
-    opacity: 0,
-  },
-}
-
-const item = {
-  initial: {
-    opacity: 0,
-    y: 20,
-  },
-  animate: {
-    opacity: 1,
-    y: 0,
-  },
-}
+import { modalContainer, modalItem } from "../Variants/modal"
+import useModal from "../Hooks/useModal"
 
 const Modal = ({ modal }) => {
-  const { setModalOpened, addItem } = useContext(Context)
+  const { setModalOpened, addItem } = useModal()
 
   return (
     <motion.div
@@ -42,14 +13,14 @@ const Modal = ({ modal }) => {
       className="fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex items-center justify-center z-30"
     >
       <motion.div
-        variants={container}
+        variants={modalContainer}
         initial="initial"
         animate="animate"
         exit="exit"
         className=" w-[500px] h-[400px] bg-slate-800 rounded-lg p-3 flex flex-col items-center justify-between"
       >
         <motion.div
-          variants={item}
+          variants={modalItem}
           className="w-full flex items-center justify-between"
         >
           <button
@@ -69,7 +40,7 @@ const Modal = ({ modal }) => {
         </motion.div>
 
         <motion.div
-          variants={item}
+          variants={modalItem}
           className="flex flex-col items-center justify-center rounded-lg"
         >
           <h1 className="text-4xl mb-2">{modal.cityName}</h1>
@@ -80,7 +51,7 @@ const Modal = ({ modal }) => {
         </motion.div>
 
         <motion.div
-          variants={item}
+          variants={modalItem}
           className="flex items-center justify-around  rounded-lg py-1"
         >
           <p className="text-xl mr-5 bg-slate-600 py-1 px-3 rounded-lg">

@@ -1,21 +1,9 @@
-import React, { useContext } from "react"
-import { Context } from "../Context"
+import React from "react"
 import WeatherCard from "./WeatherCard"
 import CardPlaceholder from "./CardPlaceholder"
 import { motion, AnimatePresence } from "framer-motion"
-
-const container = {
-  initial: {
-    opacity: 0,
-  },
-  animate: {
-    opacity: 1,
-    transition: { duration: 1, delayChildren: 0.3, staggerChildren: 0.2 },
-  },
-  exit: {
-    opacity: 0,
-  },
-}
+import { cardContainer } from "../Variants/weatherCard"
+import useSidebar from "../Hooks/useSidebar"
 
 const Sidebar = () => {
   const {
@@ -25,7 +13,7 @@ const Sidebar = () => {
     opened,
     arrayEmpty,
     weatherArray,
-  } = useContext(Context)
+  } = useSidebar()
 
   const weatherCards = weatherArray.map((item, index) => (
     <WeatherCard key={index} item={item} />
@@ -59,7 +47,7 @@ const Sidebar = () => {
         ) : (
           <AnimatePresence>
             <motion.div
-              variants={container}
+              variants={cardContainer}
               initial="initial"
               animate="animate"
               exit="exit"

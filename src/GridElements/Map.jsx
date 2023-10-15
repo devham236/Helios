@@ -1,6 +1,6 @@
 import React, { useContext } from "react"
 import { useJsApiLoader, GoogleMap } from "@react-google-maps/api"
-import { Context } from "../Context"
+import { Context } from "../Context/Context"
 
 const Map = ({ coord }) => {
   const { activeCard } = useContext(Context)

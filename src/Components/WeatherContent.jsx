@@ -1,5 +1,4 @@
-import React, { useContext } from "react"
-import { Context } from "../Context"
+import React from "react"
 import {
   HourlyForecast,
   DailyForecast,
@@ -15,23 +14,11 @@ import {
   Map,
 } from "../GridElements/index"
 import { AnimatePresence, motion } from "framer-motion"
-
-const container = {
-  initial: { opacity: 0, y: 50 },
-  animate: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 1, delayChildren: 0.2, staggerChildren: 0.1 },
-  },
-}
-
-const item = {
-  initial: { opacity: 0, y: 50 },
-  animate: { opacity: 1, y: 0 },
-}
+import { gridContainer, gridItem } from "../Variants/grid"
+import useWeatherContent from "../Hooks/useWeatherContent"
 
 const WeatherContent = ({ activeCard }) => {
-  const { opened } = useContext(Context)
+  const { opened } = useWeatherContent()
 
   const dailyElements = activeCard.daily.map((item) => (
     <DailyForecast item={item} key={item.dt} />
@@ -47,6 +34,7 @@ const WeatherContent = ({ activeCard }) => {
         opened ? "md:w-[calc(100%-20rem)] md:block sm:hidden" : "w-screen"
       }  h-screen flex flex-col items-center duration-300 z-10`}
     >
+      {/*Header*/}
       <motion.div
         initial={{ y: 50, opacity: 0 }}
         animate={{ y: 0, opacity: 1, transition: { duration: 1 } }}
@@ -66,6 +54,7 @@ const WeatherContent = ({ activeCard }) => {
         </div>
       </motion.div>
 
+      {/*Grid*/}
       <div
         className={`bottom-part w-full flex justify-center p-5 
         2xl:h-[calc(100%-16rem)] max-h-[calc(100%-13rem)]  2xl:items-start 
@@ -76,7 +65,7 @@ const WeatherContent = ({ activeCard }) => {
       >
         <AnimatePresence>
           <motion.div
-            variants={container}
+            variants={gridContainer}
             initial="initial"
             animate="animate"
             exit="exit"
@@ -89,7 +78,7 @@ const WeatherContent = ({ activeCard }) => {
               `}
           >
             <motion.div
-              variants={item}
+              variants={gridItem}
               className="grid-div md:col-span-4 md:row-span-1 sm:row-span-1 sm:col-span-2"
             >
               <div className="text-sm h-6 opacity-50 border-b-2 border-slate-500 pb-2 mb-2 flex items-center">
@@ -101,13 +90,13 @@ const WeatherContent = ({ activeCard }) => {
               </div>
             </motion.div>
             <motion.div
-              variants={item}
+              variants={gridItem}
               className="grid-div md:row-span-2 md:col-span-2 sm:row-span-2 sm:col-span-2"
             >
               <Map coord={{ lat: activeCard.lat, lng: activeCard.lon }} />
             </motion.div>
             <motion.div
-              variants={item}
+              variants={gridItem}
               className="grid-div md:row-span-3 md:col-span-2 sm:col-span-2 sm:row-span-3"
             >
               <div className="DAILY-FORECAST w-full h-full max-h-full overflow-y-auto flex flex-col justify-between">
@@ -119,15 +108,15 @@ const WeatherContent = ({ activeCard }) => {
               </div>
             </motion.div>
             <motion.div
-              variants={item}
+              variants={gridItem}
               className="grid-div AIR QUALITY sm:col-span-2 sm:row-span-1 sm:min-h-[189px] lg:min-h-0"
             >
               <AirQuality />
             </motion.div>
-            <motion.div variants={item} className="grid-div UV INDEX">
+            <motion.div variants={gridItem} className="grid-div UV INDEX">
               <UVindex index={activeCard.current.uvi} />
             </motion.div>
-            <motion.div variants={item} className="grid-div SUNSET/SUNRISE">
+            <motion.div variants={gridItem} className="grid-div SUNSET/SUNRISE">
               <SetRise
                 times={{
                   sunrise: activeCard.current.sunrise,
@@ -137,7 +126,7 @@ const WeatherContent = ({ activeCard }) => {
               />
             </motion.div>
             <motion.div
-              variants={item}
+              variants={gridItem}
               className="grid-div flex flex-col items-center justify-between"
             >
               <Compass
@@ -145,19 +134,19 @@ const WeatherContent = ({ activeCard }) => {
                 degrees={activeCard.current.wind_deg}
               />
             </motion.div>
-            <motion.div variants={item} className="grid-div">
+            <motion.div variants={gridItem} className="grid-div">
               <Rain rain={activeCard.current.rain} />
             </motion.div>
-            <motion.div variants={item} className="grid-div">
+            <motion.div variants={gridItem} className="grid-div">
               <FeelsLike fl_temp={activeCard.current.feels_like} />
             </motion.div>
-            <motion.div variants={item} className="grid-div">
+            <motion.div variants={gridItem} className="grid-div">
               <Humidity humidity={activeCard.current.humidity} />
             </motion.div>
-            <motion.div variants={item} className="grid-div">
+            <motion.div variants={gridItem} className="grid-div">
               <Visibility visibility={activeCard.current.visibility} />
             </motion.div>
-            <motion.div variants={item} className="grid-div">
+            <motion.div variants={gridItem} className="grid-div">
               <AirPressure pressure={activeCard.current.pressure} />
             </motion.div>
           </motion.div>
