@@ -22,6 +22,7 @@ const MainContent = () => {
         {modalOpened && <Modal modal={modal} />}
       </AnimatePresence>
       <i
+        data-testid="sidebar-icon"
         className={`fa-solid fa-${
           opened ? "xmark md:left-[330px] sm:right-2" : "bars left-3"
         } absolute top-2 text-2xl duration-300 cursor-pointer z-50`}

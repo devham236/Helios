@@ -31,6 +31,7 @@ function ContextProvider({ children }) {
         modalOpened,
         modal,
         arrayEmpty,
+        setArrayEmpty,
         setModal,
         setModalOpened,
         setActiveCard,

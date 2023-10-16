@@ -4,7 +4,10 @@ const CardPlaceholder = () => {
   const arr = [1, 2, 3]
 
   return (
-    <div className="w-full h-full flex flex-col items-center justify-center mt-5">
+    <div
+      data-testid="card-placeholder"
+      className="w-full h-full flex flex-col items-center justify-center mt-5"
+    >
       {arr.map((item) => (
         <div className="placeholder-div" key={item}>
           <div className="top-part flex justify-between mb-6">

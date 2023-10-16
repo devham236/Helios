@@ -34,4 +34,12 @@
     .placeholder-div{
         @apply border-2 rounded-lg border-slate-600 animate-pulse w-full p-2 mb-3
     }
+
+    .sidebar-opened{
+        @apply md:w-80 sm:w-screen sm:h-screen p-2
+    }
+
+    .sidebar-closed{
+        @apply w-0 p-0
+    }
 }

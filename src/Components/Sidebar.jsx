@@ -21,8 +21,9 @@ const Sidebar = () => {
 
   return (
     <div
+      data-testid="sidebar-container"
       className={`${
-        opened ? "md:w-80 sm:w-screen sm:h-screen p-2" : "w-0 p-0"
+        opened ? "sidebar-opened" : "sidebar-closed"
       } bg-slate-800 relative duration-300 scrollbar-thin scrollbar-thumb-slate-400 text-white max-h-screen overflow-y-auto z-20`}
     >
       <div className={``}>
@@ -52,6 +53,7 @@ const Sidebar = () => {
               animate="animate"
               exit="exit"
               className="mt-5 flex flex-col"
+              data-testid="weather-cards"
             >
               {weatherCards}
             </motion.div>
