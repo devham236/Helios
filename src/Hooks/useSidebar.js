@@ -31,6 +31,7 @@ const useSidebar = () => {
         }`
         const res = await fetch(url)
         const data = await res.json()
+        console.log(data)
 
         getOneCallData(data.coord.lat, data.coord.lon, data.name)
       } catch (error) {
@@ -48,6 +49,7 @@ const useSidebar = () => {
       }`
       const response = await fetch(url)
       const data = await response.json()
+      console.log(data)
 
       setModalOpened(true)
       setModal({ ...data, cityName })
