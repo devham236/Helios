@@ -1,19 +1,10 @@
 import React from "react"
 import { beforeEach, describe, expect, test, vi } from "vitest"
 import renderWithWrappers from "../Utils/renderWithWrappers"
-import Sidebar from "../../Components/Sidebar"
-import {
-  act,
-  fireEvent,
-  render,
-  renderHook,
-  screen,
-  waitFor,
-} from "@testing-library/react"
+import { act, renderHook } from "@testing-library/react"
 import useSidebar from "../../Hooks/useSidebar"
 import { ContextProvider } from "../../Context/Context"
 import MainContent from "../../Components/MainContent"
-import Modal from "../../Components/Modal"
 
 vi.spyOn(window, "fetch")
 
