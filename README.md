@@ -20,6 +20,11 @@ Welcome to my Weather Forecast App! This application brings you real-time weathe
 
 
 
+## Demo/Preview
+https://github.com/devham236/weather-app/assets/90037750/63b65b7e-7b7b-465d-a28d-8faa75da3005
+
+
+
 ## Getting Started
 1. **Clone the repository:** Begin by cloning this repository to your local machine using the following command:
 ```bash
