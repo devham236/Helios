@@ -8,6 +8,8 @@ const useSidebar = () => {
     arrayEmpty,
     weatherArray,
     setModal,
+    modalOpened,
+    modal,
     setModalOpened,
     setWeatherArray,
     setArrayEmpty,
@@ -26,14 +28,26 @@ const useSidebar = () => {
   async function getWeatherData() {
     if (input !== "") {
       try {
+        // Get coordinates from this url
         const url = `https://api.openweathermap.org/data/2.5/weather?q=${input}&units=metric&appid=${
           import.meta.env.VITE_API_KEY
         }`
-        const res = await fetch(url)
-        const data = await res.json()
+        const response = await fetch(url)
+        const data = await response.json()
         console.log(data)
 
-        getOneCallData(data.coord.lat, data.coord.lon, data.name)
+        // Get full data of city using oneCall
+        const onecallurl = `https://api.openweathermap.org/data/3.0/onecall?lat=${
+          data.coord.lat
+        }&lon=${data.coord.lon}&exclude=minutely&units=metric&appid=${
+          import.meta.env.VITE_API_KEY
+        }`
+        const onecallresponse = await fetch(onecallurl)
+        const onecalldata = await onecallresponse.json()
+        console.log(onecalldata)
+
+        setModalOpened(true)
+        setModal({ ...onecalldata, cityName: data.name })
       } catch (error) {
         console.log(error)
       }
@@ -42,28 +56,32 @@ const useSidebar = () => {
     }
   }
 
-  async function getOneCallData(lat, lon, cityName) {
-    try {
-      const url = `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&exclude=minutely&units=metric&appid=${
-        import.meta.env.VITE_API_KEY
-      }`
-      const response = await fetch(url)
-      const data = await response.json()
-      console.log(data)
+  // async function getOneCallData(lat, lon, cityName) {
+  //   try {
+  //     const url = `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&exclude=minutely&units=metric&appid=${
+  //       import.meta.env.VITE_API_KEY
+  //     }`
+  //     const response = await fetch(url)
+  //     const data = await response.json()
+  //     console.log(data)
 
-      setModalOpened(true)
-      setModal({ ...data, cityName })
-    } catch (error) {
-      console.log(error)
-    }
-  }
+  //     setModalOpened(true)
+  //     setModal({ ...data, cityName })
+  //   } catch (error) {
+  //     console.log(error)
+  //   }
+  // }
 
   return {
     handleChange,
     handleKeyDown,
     getWeatherData,
     setInput,
+    setModal,
+    modal,
     setArrayEmpty,
+    setModalOpened,
+    modalOpened,
     setWeatherArray,
     input,
     opened,

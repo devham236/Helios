@@ -1,5 +1,5 @@
 import { rest } from "msw"
-import { mockWeatherData } from "./mockResponseData"
+import { mockWeatherData, mockOneCallData } from "./mockResponseData"
 
 export const handlers = [
   rest.get(
@@ -18,11 +18,7 @@ export const handlers = [
       const lat = req.url.searchParams.get("lat")
       const lon = req.url.searchParams.get("lon")
       if (lat && lon) {
-        return res(
-          ctx.json({
-            cityName: "TestCity",
-          })
-        )
+        return res(ctx.json(mockOneCallData))
       }
       return res(ctx.status(404))
     }

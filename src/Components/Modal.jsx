@@ -10,6 +10,7 @@ const Modal = ({ modal }) => {
     <motion.div
       initial={{ z: -100 }}
       animate={{ y: 0 }}
+      data-testid="modal"
       className="fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex items-center justify-center z-30"
     >
       <motion.div

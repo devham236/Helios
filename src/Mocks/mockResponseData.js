@@ -34,4 +34,35 @@ const mockWeatherData = {
   wind: { deg: 100, speed: 3.6 },
 }
 
-export { mockWeatherData }
+const mockOneCallData = {
+  current: {
+    clouds: 100,
+    dew_point: 3.66,
+    dt: 1697701767,
+    feels_like: 2.32,
+    humidity: 83,
+    pressure: 999,
+    sunrise: 1697693876,
+    sunset: 1697731473,
+    temp: 6.33,
+    uvi: 0.07,
+    visibility: 10000,
+    weather: [
+      {
+        description: "scattered clouds",
+        icon: "03d",
+        id: 802,
+        main: "Clouds",
+      },
+    ],
+    wind_deg: 80,
+    wind_gust: 8.94,
+    wind_speed: 6.71,
+  },
+  lat: 52.5244,
+  lon: 13.4105,
+  timezone: "Europe/Berlin",
+  timezone_offset: 7200,
+}
+
+export { mockWeatherData, mockOneCallData }
