@@ -63,6 +63,7 @@ const mockOneCallData = {
   lon: 13.4105,
   timezone: "Europe/Berlin",
   timezone_offset: 7200,
+  cityName: "Berlin",
 }
 
 export { mockWeatherData, mockOneCallData }

@@ -1,18 +1,10 @@
 import React from "react"
 import { beforeEach, describe, expect, test, vi } from "vitest"
 import renderWithWrappers from "../Utils/renderWithWrappers"
-import {
-  act,
-  fireEvent,
-  render,
-  renderHook,
-  screen,
-  waitFor,
-} from "@testing-library/react"
+import { act, fireEvent, renderHook, screen } from "@testing-library/react"
 import useSidebar from "../../Hooks/useSidebar"
 import { ContextProvider } from "../../Context/Context"
 import MainContent from "../../Components/MainContent"
-import Modal from "../../Components/Modal"
 import userEvent from "@testing-library/user-event"
 
 vi.spyOn(window, "fetch")
@@ -34,16 +26,12 @@ describe("Sidebar", () => {
   })
 
   test("getWeatherData function opens modal", async () => {
-    const { result } = renderHook(() => useSidebar(), {
-      wrapper: ContextProvider,
-    })
     const input = screen.getByRole("textbox")
     const search = screen.getByTestId(/search-icon/i)
 
     fireEvent.change(input, { target: { value: "Test" } })
     await userEvent.click(search)
 
-    screen.debug()
     expect(screen.getByTestId("modal")).toBeInTheDocument()
   })
 })
