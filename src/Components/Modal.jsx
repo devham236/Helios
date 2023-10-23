@@ -4,7 +4,7 @@ import { modalContainer, modalItem } from "../Variants/modal"
 import useModal from "../Hooks/useModal"
 
 const Modal = ({ modal }) => {
-  const { setModalOpened, addItem } = useModal()
+  const { setModalOpened, addItem, closeModal } = useModal()
 
   return (
     <motion.div
@@ -25,13 +25,15 @@ const Modal = ({ modal }) => {
           className="w-full flex items-center justify-between"
         >
           <button
+            name="close"
             className="px-2 py-1 rounded-lg cursor-pointer opacity-50 hover:opacity-100 duration-300 bg-slate-600 flex items-center"
-            onClick={() => setModalOpened(false)}
+            onClick={closeModal}
           >
             <i className="fa-solid fa-circle-xmark mr-1 text-md"></i>
             <p>Close</p>
           </button>
           <button
+            name="add"
             className="px-2 py-1 rounded-lg cursor-pointer opacity-50 hover:opacity-100 duration-300 bg-slate-600 flex items-center"
             onClick={() => addItem(modal)}
           >

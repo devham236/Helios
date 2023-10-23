@@ -10,7 +10,11 @@ const useModal = () => {
     setActiveCard(newItem)
   }
 
-  return { setModalOpened, addItem }
+  function closeModal() {
+    setModalOpened(false)
+  }
+
+  return { setModalOpened, addItem, closeModal }
 }
 
 export default useModal
