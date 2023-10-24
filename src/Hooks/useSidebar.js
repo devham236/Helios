@@ -3,17 +3,8 @@ import useCustomContext from "../Context/useCustomContext"
 
 const useSidebar = () => {
   const [input, setInput] = useState("")
-  const {
-    opened,
-    arrayEmpty,
-    weatherArray,
-    setModal,
-    modalOpened,
-    modal,
-    setModalOpened,
-    setWeatherArray,
-    setArrayEmpty,
-  } = useCustomContext()
+  const { opened, arrayEmpty, weatherArray, setModal, setModalOpened } =
+    useCustomContext()
 
   function handleChange(event) {
     setInput(event.target.value)
@@ -76,13 +67,6 @@ const useSidebar = () => {
     handleChange,
     handleKeyDown,
     getWeatherData,
-    setInput,
-    setModal,
-    modal,
-    setArrayEmpty,
-    setModalOpened,
-    modalOpened,
-    setWeatherArray,
     input,
     opened,
     arrayEmpty,

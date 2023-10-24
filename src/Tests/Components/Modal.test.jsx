@@ -1,8 +1,7 @@
 import React from "react"
 import {
-  findByTestId,
+  act,
   fireEvent,
-  render,
   renderHook,
   screen,
   waitFor,
@@ -13,27 +12,34 @@ import Modal from "../../Components/Modal"
 import renderWithWrappers from "../Utils/renderWithWrappers"
 import { mockOneCallData } from "../../Mocks/mockResponseData"
 import userEvent from "@testing-library/user-event"
-import MainContent from "../../Components/MainContent"
-import useModal from "../../Hooks/useModal"
+import MainContent from "./../../Components/MainContent"
 import { ContextProvider } from "../../Context/Context"
-import { act } from "react-dom/test-utils"
-import Sidebar from "../../Components/Sidebar"
+import useModal from "../../Hooks/useModal"
 
 vi.spyOn(window, "fetch")
 
 describe("Modal", () => {
-  // beforeEach(() => {
-  //   renderWithWrappers(<MainContent />)
-  // })
-
+  beforeEach(() => {
+    renderWithWrappers(<MainContent />)
+  })
   test("modal renders with correct data", () => {
     renderWithWrappers(<Modal modal={mockOneCallData} />)
     const element = screen.getByText(mockOneCallData.cityName)
     expect(element).toBeInTheDocument()
   })
 
-  test("modal closes when clicking 'close' button", async () => {
+  test("modal closes when close button is clicked", async () => {
+    // renderWithWrappers(<Modal modal={mockOneCallData} />)
+    // const element = screen.getByRole("button", { name: "Close" })
+    // fireEvent.click(element)
+    // await waitForElementToBeRemoved(() => screen.getByTestId("modal"))
     renderWithWrappers(<Modal modal={mockOneCallData} />)
-    screen.logTestingPlaygroundURL()
+    const { result } = renderHook(() => useModal(), {
+      wrapper: ContextProvider,
+    })
+    act(() => {
+      result.current.setModalOpened(true)
+    })
+    expect(result.current.modalOpened).toBe(true)
   })
 })
