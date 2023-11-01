@@ -25,6 +25,7 @@ const Modal = ({ modal }) => {
           className="w-full flex items-center justify-between"
         >
           <button
+            data-testid="closeButton"
             name="close"
             className="px-2 py-1 rounded-lg cursor-pointer opacity-50 hover:opacity-100 duration-300 bg-slate-600 flex items-center"
             onClick={closeModal}
