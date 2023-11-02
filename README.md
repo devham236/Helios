@@ -3,6 +3,9 @@
 Welcome to my Weather Forecast App! This application brings you real-time weather updates from around the globe, delivering accurate and up-to-date information using the OpenWeatherMap API. The app is crafted with a strong emphasis on design, taking inspiration from the sleek and intuitive layout of the iPhone/iPad Weather app. It's built using React.js with Vite as the build tool and styled with the finesse of Tailwind CSS for a visually appealing and fully responsive experience.
 
 
+## Demo/Preview
+https://github.com/devham236/weather-app/assets/90037750/63b65b7e-7b7b-465d-a28d-8faa75da3005
+
 
 ## Features
 * **Live Weather Insights:** Stay informed with the latest weather data for any location you desire.
@@ -17,11 +20,6 @@ Welcome to my Weather Forecast App! This application brings you real-time weathe
 * **Tailwind CSS:** With its utility-first approach, Tailwind CSS enables rapid and appealing UI development, contributing to the app's polished design.
 * **Framer Motion:** An animation library fro react with smooth and beautiful animations.
 * **OpenWeatherMap API:** The app fetches real-time weather data from this API, ensuring the latest and most accurate weather information is at your fingertips.
-
-
-
-## Demo/Preview
-https://github.com/devham236/weather-app/assets/90037750/63b65b7e-7b7b-465d-a28d-8faa75da3005
 
 
 
