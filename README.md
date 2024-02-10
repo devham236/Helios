@@ -17,7 +17,7 @@ https://github.com/devham236/weather-app/assets/90037750/63b65b7e-7b7b-465d-a28d
 - **React JS:** Leveraging the power of this dynamic JavaScript library, the app's components are modular and efficient, ensuring an optimal user experience.
 - **Vite:** The agile build tool enables swift development by managing the project's build process for both development and production environments.
 - **Tailwind CSS:** With its utility-first approach, Tailwind CSS enables rapid and appealing UI development, contributing to the app's polished design.
-- **Framer Motion:** An animation library fro react with smooth and beautiful animations.
+- **Framer Motion:** An animation library for react with smooth and beautiful animations.
 - **OpenWeatherMap API:** The app fetches real-time weather data from this API, ensuring the latest and most accurate weather information is at your fingertips.
 
 ## Getting Started
