@@ -47,22 +47,6 @@ const useSidebar = () => {
     }
   }
 
-  // async function getOneCallData(lat, lon, cityName) {
-  //   try {
-  //     const url = `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&exclude=minutely&units=metric&appid=${
-  //       import.meta.env.VITE_API_KEY
-  //     }`
-  //     const response = await fetch(url)
-  //     const data = await response.json()
-  //     console.log(data)
-
-  //     setModalOpened(true)
-  //     setModal({ ...data, cityName })
-  //   } catch (error) {
-  //     console.log(error)
-  //   }
-  // }
-
   return {
     handleChange,
     handleKeyDown,
