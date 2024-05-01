@@ -37,7 +37,6 @@ const useSidebar = () => {
         }`
         const onecallresponse = await fetch(onecallurl)
         const onecalldata = await onecallresponse.json()
-        console.log(onecalldata)
 
         setModalOpened(true)
         setModal({ ...onecalldata, cityName: data.name })
