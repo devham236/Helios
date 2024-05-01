@@ -8,19 +8,10 @@ import { useDispatch, useSelector } from "react-redux"
 import { handleInputChange } from "../Slices/sidebarSlice"
 
 const Sidebar = () => {
-  const { sidebarOpened, sidebarInput } = useSelector(
-    (state) => state.sidebar.value
-  )
-  console.log(sidebarInput)
+  const { sidebarOpened } = useSelector((state) => state.sidebar.value)
   const dispatch = useDispatch()
-  const {
-    handleChange,
-    handleKeyDown,
-    getWeatherData,
-    opened,
-    arrayEmpty,
-    weatherArray,
-  } = useSidebar()
+  const { handleKeyDown, getWeatherData, opened, arrayEmpty, weatherArray } =
+    useSidebar()
 
   const weatherCards = weatherArray.map((item, index) => (
     <WeatherCard key={index} item={item} />

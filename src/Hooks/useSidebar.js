@@ -1,7 +1,9 @@
 import React, { useState } from "react"
 import useCustomContext from "../Context/useCustomContext"
+import { useSelector } from "react-redux"
 
 const useSidebar = () => {
+  const { sidebarInput } = useSelector((state) => state.sidebar.value)
   const [input, setInput] = useState("")
   const { opened, arrayEmpty, weatherArray, setModal, setModalOpened } =
     useCustomContext()
@@ -17,10 +19,10 @@ const useSidebar = () => {
   }
 
   async function getWeatherData() {
-    if (input !== "") {
+    if (sidebarInput !== "") {
       try {
         // Get coordinates from this url
-        const url = `https://api.openweathermap.org/data/2.5/weather?q=${input}&units=metric&appid=${
+        const url = `https://api.openweathermap.org/data/2.5/weather?q=${sidebarInput}&units=metric&appid=${
           import.meta.env.VITE_API_KEY
         }`
         const response = await fetch(url)
