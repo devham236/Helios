@@ -4,8 +4,15 @@ import CardPlaceholder from "./CardPlaceholder"
 import { motion, AnimatePresence } from "framer-motion"
 import { cardContainer } from "../Variants/weatherCard"
 import useSidebar from "../Hooks/useSidebar"
+import { useDispatch, useSelector } from "react-redux"
+import { handleInputChange } from "../Slices/sidebarSlice"
 
 const Sidebar = () => {
+  const { sidebarOpened, sidebarInput } = useSelector(
+    (state) => state.sidebar.value
+  )
+  console.log(sidebarInput)
+  const dispatch = useDispatch()
   const {
     handleChange,
     handleKeyDown,
@@ -23,7 +30,7 @@ const Sidebar = () => {
     <div
       data-testid="sidebar-container"
       className={`${
-        opened ? "sidebar-opened" : "sidebar-closed"
+        sidebarOpened ? "sidebar-opened" : "sidebar-closed"
       } bg-slate-800 relative duration-300 scrollbar-thin scrollbar-thumb-slate-400 text-white max-h-screen overflow-y-auto z-20`}
     >
       <div className={``}>
@@ -33,7 +40,7 @@ const Sidebar = () => {
             type="text"
             placeholder="Search City..."
             className="mr-2 focus:outline-none p-1 rounded-md placeholder:text-slate-400 bg-slate-600 opacity-50 focus:opacity-100 duration-300 "
-            onChange={(e) => handleChange(e)}
+            onChange={(e) => dispatch(handleInputChange(e.target.value))}
             onKeyDown={(e) => handleKeyDown(e)}
           />
           <div
