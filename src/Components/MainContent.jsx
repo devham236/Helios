@@ -10,7 +10,7 @@ import { openSidebar } from "../Slices/sidebarSlice"
 
 const MainContent = () => {
   const { activeCard, modalOpened, modal, weatherArray } = useMainContent()
-  const { sidebarOpened } = useSelector((state) => state.sidebar.value)
+  const { sidebarOpened } = useSelector((state) => state.sidebar)
   const dispatch = useDispatch()
 
   return (

@@ -3,7 +3,7 @@ import useCustomContext from "../Context/useCustomContext"
 import { useSelector } from "react-redux"
 
 const useSidebar = () => {
-  const { sidebarInput } = useSelector((state) => state.sidebar.value)
+  const { sidebarInput } = useSelector((state) => state.sidebar)
   const [input, setInput] = useState("")
   const { opened, arrayEmpty, weatherArray, setModal, setModalOpened } =
     useCustomContext()

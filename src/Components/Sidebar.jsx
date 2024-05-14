@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { handleInputChange } from "../Slices/sidebarSlice"
 
 const Sidebar = () => {
-  const { sidebarOpened } = useSelector((state) => state.sidebar.value)
+  const { sidebarOpened } = useSelector((state) => state.sidebar)
   const dispatch = useDispatch()
   const { handleKeyDown, getWeatherData, opened, arrayEmpty, weatherArray } =
     useSidebar()

@@ -2,13 +2,13 @@ import { createSlice } from "@reduxjs/toolkit"
 
 const sidebarSlice = createSlice({
   name: "sidebar",
-  initialState: { value: { sidebarOpened: false, sidebarInput: "" } },
+  initialState: { sidebarOpened: false, sidebarInput: "" },
   reducers: {
     openSidebar: (state) => {
-      state.value.sidebarOpened = !state.value.sidebarOpened
+      state.sidebarOpened = !state.sidebarOpened
     },
     handleInputChange: (state, action) => {
-      state.value.sidebarInput = action.payload
+      state.sidebarInput = action.payload
     },
   },
 })
