@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import WeatherCard from "./WeatherCard"
 import CardPlaceholder from "./CardPlaceholder"
 import { motion, AnimatePresence } from "framer-motion"
@@ -6,9 +6,10 @@ import { cardContainer } from "../Variants/weatherCard"
 import useSidebar from "../Hooks/useSidebar"
 import { useDispatch, useSelector } from "react-redux"
 import { handleInputChange } from "../Slices/sidebarSlice"
+import fetchWeatherData from "../Utils/fetchWeatherData"
 
 const Sidebar = () => {
-  const { sidebarOpened } = useSelector((state) => state.sidebar)
+  const { sidebarOpened, weatherData } = useSelector((state) => state.sidebar)
   const dispatch = useDispatch()
   const { handleKeyDown, getWeatherData, opened, arrayEmpty, weatherArray } =
     useSidebar()
@@ -16,6 +17,8 @@ const Sidebar = () => {
   const weatherCards = weatherArray.map((item, index) => (
     <WeatherCard key={index} item={item} />
   ))
+
+  console.log(weatherData)
 
   return (
     <div
@@ -36,7 +39,7 @@ const Sidebar = () => {
           />
           <div
             className="bg-slate-600 p-2 rounded-md cursor-pointer opacity-50 hover:opacity-100 duration-300 flex items-center justify-center"
-            onClick={getWeatherData}
+            onClick={() => dispatch(fetchWeatherData("tokyo"))}
           >
             <i
               data-testid="search-icon"
