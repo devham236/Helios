@@ -9,7 +9,9 @@ import { handleInputChange } from "../Slices/sidebarSlice"
 import fetchWeatherData from "../Utils/fetchWeatherData"
 
 const Sidebar = () => {
-  const { sidebarOpened, weatherData } = useSelector((state) => state.sidebar)
+  const { sidebarOpened, weatherData, sidebarInput, error } = useSelector(
+    (state) => state.sidebar
+  )
   const dispatch = useDispatch()
   const { handleKeyDown, getWeatherData, opened, arrayEmpty, weatherArray } =
     useSidebar()
@@ -39,7 +41,7 @@ const Sidebar = () => {
           />
           <div
             className="bg-slate-600 p-2 rounded-md cursor-pointer opacity-50 hover:opacity-100 duration-300 flex items-center justify-center"
-            onClick={() => dispatch(fetchWeatherData("tokyo"))}
+            onClick={() => dispatch(fetchWeatherData(sidebarInput))}
           >
             <i
               data-testid="search-icon"
