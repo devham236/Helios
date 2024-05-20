@@ -2,9 +2,12 @@ import React from "react"
 import { motion } from "framer-motion"
 import { modalContainer, modalItem } from "../Variants/modal"
 import useModal from "../Hooks/useModal"
+import { useDispatch } from "react-redux"
+import { closeModal } from "../Slices/modalSlice"
 
 const Modal = ({ modal }) => {
-  const { setModalOpened, addItem, closeModal } = useModal()
+  const { setModalOpened, addItem } = useModal()
+  const dispatch = useDispatch()
 
   return (
     <motion.div
@@ -28,7 +31,7 @@ const Modal = ({ modal }) => {
             data-testid="closeButton"
             name="close"
             className="px-2 py-1 rounded-lg cursor-pointer opacity-50 hover:opacity-100 duration-300 bg-slate-600 flex items-center"
-            onClick={closeModal}
+            onClick={() => dispatch(closeModal())}
           >
             <i className="fa-solid fa-circle-xmark mr-1 text-md"></i>
             <p>Close</p>

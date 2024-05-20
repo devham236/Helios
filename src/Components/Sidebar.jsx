@@ -20,8 +20,6 @@ const Sidebar = () => {
     <WeatherCard key={index} item={item} />
   ))
 
-  console.log(weatherData)
-
   return (
     <div
       data-testid="sidebar-container"
@@ -41,7 +39,9 @@ const Sidebar = () => {
           />
           <div
             className="bg-slate-600 p-2 rounded-md cursor-pointer opacity-50 hover:opacity-100 duration-300 flex items-center justify-center"
-            onClick={() => dispatch(fetchWeatherData(sidebarInput))}
+            onClick={() => {
+              dispatch(fetchWeatherData(sidebarInput))
+            }}
           >
             <i
               data-testid="search-icon"

@@ -3,7 +3,6 @@ import { createAsyncThunk } from "@reduxjs/toolkit"
 const fetchWeatherData = createAsyncThunk(
   "weatherData/feathWeatherData",
   async (city) => {
-    console.log(city)
     if (city === "") {
       throw new Error("Input empty")
     }

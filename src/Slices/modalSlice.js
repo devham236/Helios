@@ -6,6 +6,7 @@ const modalSlice = createSlice({
   reducers: {
     openModal: (state, action) => {
       state.value = action.payload
+      console.log(action.payload)
     },
     closeModal: (state, action) => {
       state.value = null

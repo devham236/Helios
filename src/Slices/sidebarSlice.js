@@ -6,7 +6,7 @@ const sidebarSlice = createSlice({
   initialState: {
     sidebarOpened: false,
     sidebarInput: "",
-    weatherData: [],
+    weatherData: null,
     loading: false,
     error: "",
   },
