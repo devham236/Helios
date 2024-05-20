@@ -26,7 +26,7 @@ const WeatherContent = ({ activeCard }) => {
 
   const hourlyElements = activeCard.hourly
     .slice(0, 24)
-    .map((item) => <HourlyForecast item={item} key={item.dt} />)
+    .map((item) => <HourlyForecast item={item} key={item.id} />)
 
   return (
     <div
