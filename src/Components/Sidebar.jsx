@@ -3,15 +3,12 @@ import WeatherCard from "./WeatherCard"
 import CardPlaceholder from "./CardPlaceholder"
 import { motion, AnimatePresence } from "framer-motion"
 import { cardContainer } from "../Variants/weatherCard"
-import useSidebar from "../Hooks/useSidebar"
 import { useDispatch, useSelector } from "react-redux"
 import { handleInputChange } from "../Slices/sidebarSlice"
 import fetchWeatherData from "../Utils/fetchWeatherData"
 
 const Sidebar = () => {
-  const { sidebarOpened, weatherData, sidebarInput, error } = useSelector(
-    (state) => state.sidebar
-  )
+  const { sidebarOpened, sidebarInput } = useSelector((state) => state.sidebar)
   const { data } = useSelector((state) => state.cards)
   const dispatch = useDispatch()
 
