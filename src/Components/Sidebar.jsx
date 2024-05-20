@@ -16,8 +16,6 @@ const Sidebar = () => {
     <WeatherCard key={item.id} item={item} />
   ))
 
-  console.log(data)
-
   return (
     <div
       data-testid="sidebar-container"
