@@ -7,8 +7,12 @@ import { closeModal } from "../Slices/modalSlice"
 import { addCard } from "../Slices/cardsSlice"
 
 const Modal = ({ modal }) => {
-  const { addItem } = useModal()
   const dispatch = useDispatch()
+
+  const handleAdd = (modal) => {
+    dispatch(addCard(modal))
+    dispatch(closeModal())
+  }
 
   return (
     <motion.div
@@ -40,7 +44,7 @@ const Modal = ({ modal }) => {
           <button
             name="add"
             className="px-2 py-1 rounded-lg cursor-pointer opacity-50 hover:opacity-100 duration-300 bg-slate-600 flex items-center"
-            onClick={() => dispatch(addCard(modal))}
+            onClick={() => handleAdd(modal)}
           >
             <i className="fa-solid fa-circle-plus mr-1 text-md"></i>
             <p>Add</p>

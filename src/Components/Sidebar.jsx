@@ -14,11 +14,9 @@ const Sidebar = () => {
   )
   const { data } = useSelector((state) => state.cards)
   const dispatch = useDispatch()
-  const { handleKeyDown, getWeatherData, opened, arrayEmpty, weatherArray } =
-    useSidebar()
 
-  const weatherCards = weatherArray.map((item, index) => (
-    <WeatherCard key={index} item={item} />
+  const weatherCards = data.map((item) => (
+    <WeatherCard key={item.id} item={item} />
   ))
 
   console.log(data)
@@ -49,7 +47,7 @@ const Sidebar = () => {
             ></i>
           </div>
         </div>
-        {arrayEmpty ? (
+        {data.length < 1 ? (
           <CardPlaceholder />
         ) : (
           <AnimatePresence>

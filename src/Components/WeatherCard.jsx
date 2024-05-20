@@ -4,11 +4,14 @@ import getTime from "../Utils/getTime"
 import { motion } from "framer-motion"
 import { cardItem } from "../Variants/weatherCard"
 import useWeatherCard from "../Hooks/useWeatherCard"
+import { removeCard } from "../Slices/cardsSlice"
+import { useDispatch } from "react-redux"
 
 const WeatherCard = ({ item }) => {
   const { setActiveCard, removeItem, activeCard } = useWeatherCard()
+  const dispatch = useDispatch()
 
-  const match = item?.cityName === activeCard?.cityName
+  const match = item?.id === activeCard?.id
 
   return (
     <motion.div
@@ -28,7 +31,7 @@ const WeatherCard = ({ item }) => {
             className="flex items-center mt-2 opacity-50 hover:opacity-100 duration-300 text-sm w-0"
             onClick={(e) => {
               e.stopPropagation()
-              removeItem(item)
+              dispatch(removeCard(item))
             }}
           >
             <i className="fa-solid fa-trash-can mr-1"></i>
