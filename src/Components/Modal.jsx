@@ -4,6 +4,7 @@ import { modalContainer, modalItem } from "../Variants/modal"
 import useModal from "../Hooks/useModal"
 import { useDispatch } from "react-redux"
 import { closeModal } from "../Slices/modalSlice"
+import { addCard } from "../Slices/cardsSlice"
 
 const Modal = ({ modal }) => {
   const { addItem } = useModal()
@@ -39,7 +40,7 @@ const Modal = ({ modal }) => {
           <button
             name="add"
             className="px-2 py-1 rounded-lg cursor-pointer opacity-50 hover:opacity-100 duration-300 bg-slate-600 flex items-center"
-            onClick={() => addItem(modal)}
+            onClick={() => dispatch(addCard(modal))}
           >
             <i className="fa-solid fa-circle-plus mr-1 text-md"></i>
             <p>Add</p>

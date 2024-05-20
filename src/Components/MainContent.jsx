@@ -15,11 +15,9 @@ const MainContent = () => {
   const { value } = useSelector((state) => state.modal)
   const dispatch = useDispatch()
 
-  console.log(weatherData)
-
   useEffect(() => {
     if (weatherData == null) {
-      console.log("No data")
+      return
     } else {
       dispatch(openModal(weatherData))
     }

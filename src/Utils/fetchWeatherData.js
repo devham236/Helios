@@ -1,4 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit"
+import uuid4 from "uuid4"
 
 const fetchWeatherData = createAsyncThunk(
   "weatherData/feathWeatherData",
@@ -21,8 +22,9 @@ const fetchWeatherData = createAsyncThunk(
     }`
     const onecallresponse = await fetch(onecallurl)
     const onecalldata = await onecallresponse.json()
+    const id = uuid4()
 
-    return { ...onecalldata, cityName: data.name }
+    return { ...onecalldata, cityName: data.name, id }
   }
 )
 

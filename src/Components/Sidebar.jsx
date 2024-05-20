@@ -12,6 +12,7 @@ const Sidebar = () => {
   const { sidebarOpened, weatherData, sidebarInput, error } = useSelector(
     (state) => state.sidebar
   )
+  const { data } = useSelector((state) => state.cards)
   const dispatch = useDispatch()
   const { handleKeyDown, getWeatherData, opened, arrayEmpty, weatherArray } =
     useSidebar()
@@ -19,6 +20,8 @@ const Sidebar = () => {
   const weatherCards = weatherArray.map((item, index) => (
     <WeatherCard key={index} item={item} />
   ))
+
+  console.log(data)
 
   return (
     <div
