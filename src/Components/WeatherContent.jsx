@@ -15,10 +15,10 @@ import {
 } from "../GridElements/index"
 import { AnimatePresence, motion } from "framer-motion"
 import { gridContainer, gridItem } from "../Variants/grid"
-import useWeatherContent from "../Hooks/useWeatherContent"
+import { useSelector } from "react-redux"
 
 const WeatherContent = ({ activeCard }) => {
-  const { opened } = useWeatherContent()
+  const { sidebarOpened } = useSelector((state) => state.sidebar)
 
   const dailyElements = activeCard.daily.map((item) => (
     <DailyForecast item={item} key={item.dt} />
@@ -31,7 +31,9 @@ const WeatherContent = ({ activeCard }) => {
   return (
     <div
       className={`${
-        opened ? "md:w-[calc(100%-20rem)] md:block sm:hidden" : "w-screen"
+        sidebarOpened
+          ? "md:w-[calc(100%-20rem)] md:block sm:hidden"
+          : "w-screen"
       }  h-screen flex flex-col items-center duration-300 z-10`}
     >
       {/*Header*/}

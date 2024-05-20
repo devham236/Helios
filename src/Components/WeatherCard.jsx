@@ -2,13 +2,11 @@ import React from "react"
 import getTime from "../Utils/getTime"
 import { motion } from "framer-motion"
 import { cardItem } from "../Variants/weatherCard"
-import useWeatherCard from "../Hooks/useWeatherCard"
 import { removeCard } from "../Slices/cardsSlice"
 import { useDispatch, useSelector } from "react-redux"
 import { activateCard } from "../Slices/activeCardSlice"
 
 const WeatherCard = ({ item }) => {
-  const { setActiveCard, removeItem, activeCard } = useWeatherCard()
   const { card } = useSelector((state) => state.activeCard)
   const dispatch = useDispatch()
 
