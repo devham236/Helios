@@ -1,10 +1,10 @@
 import React from "react"
 import { motion } from "framer-motion"
 import { modalContainer, modalItem } from "../Variants/modal"
-import useModal from "../Hooks/useModal"
 import { useDispatch } from "react-redux"
 import { closeModal } from "../Slices/modalSlice"
 import { addCard } from "../Slices/cardsSlice"
+import { activateCard } from "../Slices/activeCardSlice"
 
 const Modal = ({ modal }) => {
   const dispatch = useDispatch()
@@ -12,6 +12,7 @@ const Modal = ({ modal }) => {
   const handleAdd = (modal) => {
     dispatch(addCard(modal))
     dispatch(closeModal())
+    dispatch(activateCard(modal))
   }
 
   return (

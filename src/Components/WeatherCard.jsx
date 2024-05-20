@@ -1,25 +1,24 @@
-import React, { useContext } from "react"
-import { Context } from "../Context/Context"
+import React from "react"
 import getTime from "../Utils/getTime"
 import { motion } from "framer-motion"
 import { cardItem } from "../Variants/weatherCard"
 import useWeatherCard from "../Hooks/useWeatherCard"
 import { removeCard } from "../Slices/cardsSlice"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
+import { activateCard } from "../Slices/activeCardSlice"
 
 const WeatherCard = ({ item }) => {
   const { setActiveCard, removeItem, activeCard } = useWeatherCard()
+  const { card } = useSelector((state) => state.activeCard)
   const dispatch = useDispatch()
 
-  const match = item?.id === activeCard?.id
+  const match = item?.id === card?.id
 
   return (
     <motion.div
       variants={cardItem}
-      className={`weather-card bg-slate-600 rounded-lg p-2 mb-4 cursor-pointer  duration-300 ${
-        match ? "opacity-[95]" : "opacity-50"
-      }`}
-      onClick={() => setActiveCard(item)}
+      className={` bg-slate-600 rounded-lg p-2 mb-4 cursor-pointer duration-300 opacity-0`}
+      onClick={() => dispatch(activateCard(item))}
     >
       <div className="top-part flex justify-between mb-3">
         <div className="city-time">
