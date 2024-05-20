@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux"
 import { closeModal } from "../Slices/modalSlice"
 
 const Modal = ({ modal }) => {
-  const { setModalOpened, addItem } = useModal()
+  const { addItem } = useModal()
   const dispatch = useDispatch()
 
   return (
