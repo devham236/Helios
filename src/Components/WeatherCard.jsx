@@ -12,10 +12,14 @@ const WeatherCard = ({ item }) => {
 
   const match = item?.id === card?.id
 
+  console.log(card.cityName)
+
   return (
     <motion.div
       variants={cardItem}
-      className={` bg-slate-600 rounded-lg p-2 mb-4 cursor-pointer duration-300 opacity-0`}
+      className={` bg-slate-600 rounded-lg p-2 mb-4 cursor-pointer ${
+        match ? "border-[1px] border-slate-400" : ""
+      }`}
       onClick={() => dispatch(activateCard(item))}
     >
       <div className="top-part flex justify-between mb-3">
